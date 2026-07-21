@@ -29,27 +29,26 @@ namespace Arrays_2D
             int columns = Convert.ToInt16(Console.ReadLine());
             //array created after user input
             int[,] array2D = new int[rows, columns];
-            int lastIndexOfRows = rows - 1;
-            int lastIndexOfColumns = columns - 1;
             Console.WriteLine("Do you want to have a grid for your array or not? Press y or n.");
             string gridSelection = Console.ReadLine().ToLower();
             Console.WriteLine("Do you prefer the contents of the array should be numbers, alternating symbols or indices?\nPress 1 for numbers. 2 for symbols. 3 for showing indices as content.");
             int runningIncrement = 1;
-            for (int i = 0; i < lastIndexOfRows; i++)
+            for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < lastIndexOfColumns; j++)
+                for (int j = 0; j < columns; j++)
                 {
                     array2D[i, j] = runningIncrement++;
                 }
             }
 
-            for (int i = 0; i < lastIndexOfRows; i++)
+            for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < lastIndexOfColumns; j++)
+                for (int j = 0; j < columns; j++)
                 {
-                    Console.Write($"| {array2D[i,j]} ");
-                }
+                    Console.Write($"| {array2D[i, j]} ");
 
+                }
+                Console.WriteLine($"|");
             }
 
         }
