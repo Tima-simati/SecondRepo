@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using Console = Colorful.Console;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+//using Console = Colorful.Console;
+
 
 namespace Arrays_2D
 {
@@ -28,6 +31,7 @@ namespace Arrays_2D
             int columns = Convert.ToInt16(Console.ReadLine());
             //array initialized after user input with no values
             string[,] array2D = new string[rows, columns];
+
             //setting up variables for putting grid in the array
             int gridColumns = columns * 4 + 1;
             string gridLines = "+";
@@ -42,6 +46,11 @@ namespace Arrays_2D
                     gridLines += "-";
                 }
             }
+            //adaption of array, if grid is selected
+            int gridRows = rows * 4 + 1;
+            int gridColumns = columns * 2 + 1;
+            string[,] gridArray2D = new string[gridRows, gridColumns];
+
 
             Console.WriteLine("Do you prefer the contents of the array should be numbers, alternating symbols or indices?\nPress 1 for numbers. 2 for symbols. 3 for showing indices as content.");
             Console.WriteLine("You chose:");
@@ -105,8 +114,6 @@ namespace Arrays_2D
                     Console.WriteLine("|");
                     Console.WriteLine(gridLines);
                 }
-
-
             }
             if (gridSelection == "n")               //outputting of 2D array to Console without grid
             {
@@ -114,6 +121,7 @@ namespace Arrays_2D
                 {
                     for (int j = 0; j < columns; j++)
                     {
+
                         Console.Write($"{array2D[i, j]} ", Color.Green);
                     }
                     Console.WriteLine($"");
