@@ -67,6 +67,15 @@ namespace Arrays_2D
                     }
                 }
 
+            }if(arraysContentSelection == '3')
+            {
+                for (int i = 0; i < rows; i++)
+                {
+                    for (int j = 0; j < columns; j++)
+                    {
+                        array2D[i, j] = $"{i},{j} ";
+                    }
+                }
             }
             //outputting of 2D array to Console
             for (int i = 0; i < rows; i++)
