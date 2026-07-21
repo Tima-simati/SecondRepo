@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-
+//using Console = Colorful.Console;
 
 namespace Arrays_2D
 {
@@ -29,15 +29,17 @@ namespace Arrays_2D
             int columns = Convert.ToInt16(Console.ReadLine());
             //array initialized after user input with no values
             string[,] array2D = new string[rows, columns];
+            //adaption of array, if grid is selected
+            int gridRows = rows * 4 + 1;
+            int gridColumns = columns * 2 + 1;
+            string[,] gridArray2D = new string[gridRows, gridColumns];
 
-            Console.WriteLine("Do you want to have a grid for your array or not? Press y or n.");
-            string gridSelection = Console.ReadLine().ToLower();
             Console.WriteLine("Do you prefer the contents of the array should be numbers, alternating symbols or indices?\nPress 1 for numbers. 2 for symbols. 3 for showing indices as content.");
             Console.WriteLine("You chose:");
             char arraysContentSelection = Console.ReadKey().KeyChar;
             Console.WriteLine("\nYour array is:");
             int runningValueIncrement = 0;
-            //numbers selected for 2D Array
+            //numbers selected as content for 2D Array
             if (arraysContentSelection == '1')
             {
                 //filling of 2D Array with values
@@ -49,6 +51,7 @@ namespace Arrays_2D
                     }
                 }
             }
+            //symbols selected as content for 2D array
             if (arraysContentSelection == '2')
             {
                 for (int i = 0; i < rows; i++)
@@ -67,7 +70,9 @@ namespace Arrays_2D
                     }
                 }
 
-            }if(arraysContentSelection == '3')
+            }
+            //indices selected as content for 2D array
+            if (arraysContentSelection == '3')
             {
                 for (int i = 0; i < rows; i++)
                 {
@@ -77,15 +82,46 @@ namespace Arrays_2D
                     }
                 }
             }
-            //outputting of 2D array to Console
-            for (int i = 0; i < rows; i++)
+            Console.WriteLine("Do you want to have a grid for your array or not? Press y or n.");
+            string gridSelection = Console.ReadLine().ToLower();
+            if (gridSelection == "y")               //outputting of 2D array to Console with grid
             {
-                for (int j = 0; j < columns; j++)
+                for (int i = 0; i < gridRows; i++)
                 {
-                    Console.Write($"{array2D[i, j]} ");
-
+                    for (int j = 0; j < gridColumns; j++)
+                    {
+                        if (i % 2 == 0)
+                        {
+                            if (j % 4 == 0)
+                            {
+                                
+                            }
+                            else
+                            {
+                                gridArray2D[i, j] = "-";
+                            }
+                        }
+                        if (i % 2 == 1)
+                        {
+                            if (j % 3 == 2)
+                            {
+                                //gridArray2D[i, j] = array2D
+                            }
+                        }
+                    }
+                    
                 }
-                Console.WriteLine($"");
+            }
+            if (gridSelection == "n")               //outputting of 2D array to Console without grid
+            {
+                for (int i = 0; i < rows; i++)
+                {
+                    for (int j = 0; j < columns; j++)
+                    {
+                        Console.Write($"{array2D[i, j]} ",Color.Pink);
+                    }
+                    Console.WriteLine($"");
+                }
             }
         }
     }
