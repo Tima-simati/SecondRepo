@@ -8,19 +8,7 @@ namespace Arrays_2D
     {
         static void Main(string[] args)
         {
-            /*dynamic grid sizes; let the user select how many rows and cols should be displayed
-                fill the grid with values; you can either put random symbols or let the user decide how to fill value, be creative
-                print the content of the grid
-                modify the specific ranges; you can try to mark the cells of the grid like a chess board 
-                where alternating cells are marked or display the border of the grid
 
-            added fun:try to color the the output on the console 
-            steps:
-            ask the user about the dimensions of the grid
-            create a grid and fill with values
-            output that array
-            implement multiple modes that display your grid differently
-             */
             Console.WriteLine("This is a program for displaying arrays.\nWhat should be the dimensions of your array?");
             Console.WriteLine("Please enter the number of rows.");
             int rows = Convert.ToInt16(Console.ReadLine());
@@ -66,18 +54,16 @@ namespace Arrays_2D
                 {
                     for (int j = 0; j < columns; j++)
                     {
-                        if (runningValueIncrement % 2 == 0)
+                        if ((i+j) % 2 == 0)
                         {
                             array2D[i, j] = "X";
                         }
                         else
                         {
                             array2D[i, j] = "O";
-                        }
-                        ++runningValueIncrement;
-                    }
+                        }                        
+                    }                   
                 }
-
             }
             //indices selected as content for 2D array
             if (arraysContentSelection == '3')
@@ -104,8 +90,6 @@ namespace Arrays_2D
                     Console.WriteLine("|");
                     Console.WriteLine(gridLines);
                 }
-
-
             }
             if (gridSelection == "n")               //outputting of 2D array to Console without grid
             {
@@ -113,7 +97,7 @@ namespace Arrays_2D
                 {
                     for (int j = 0; j < columns; j++)
                     {
-                        Console.Write($"{array2D[i, j]} ", Color.Green);
+                        Console.Write($"{array2D[i, j]} ");
                     }
                     Console.WriteLine($"");
                 }
