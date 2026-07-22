@@ -60,11 +60,11 @@ namespace Arrays_2D
                     {
                         if ((i + j) % 2 == 0)
                         {
-                            array2D[i, j] = "X";
+                            array2D[i, j] = "X".Pastel(Color.White).PastelBg("000000");
                         }
                         else
                         {
-                            array2D[i, j] = "O";
+                            array2D[i, j] = "O".Pastel(Color.Black).PastelBg("FFFFFF");
                         }
                     }
                 }
