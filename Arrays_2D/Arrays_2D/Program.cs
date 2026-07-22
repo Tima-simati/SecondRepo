@@ -30,6 +30,7 @@ namespace Arrays_2D
                     gridLines += "-";
                 }
             }
+
             Console.WriteLine("Do you prefer the contents of the array should be numbers, alternating symbols or indices?\nPress 1 for numbers. 2 for symbols. 3 for showing indices as content.");
             Console.WriteLine("You chose:");
             char arraysContentSelection = Console.ReadKey().KeyChar;
@@ -54,15 +55,15 @@ namespace Arrays_2D
                 {
                     for (int j = 0; j < columns; j++)
                     {
-                        if ((i+j) % 2 == 0)
+                        if ((i + j) % 2 == 0)
                         {
                             array2D[i, j] = "X";
                         }
                         else
                         {
                             array2D[i, j] = "O";
-                        }                        
-                    }                   
+                        }
+                    }
                 }
             }
             //indices selected as content for 2D array
@@ -72,7 +73,7 @@ namespace Arrays_2D
                 {
                     for (int j = 0; j < columns; j++)
                     {
-                        array2D[i, j] = $"{i},{j} ";
+                        array2D[i, j] = $"{i},{j}";
                     }
                 }
             }
@@ -85,7 +86,8 @@ namespace Arrays_2D
                 {
                     for (int j = 0; j < columns; j++)
                     {
-                        Console.Write($"| {array2D[i, j]} ");
+                        Console.Write("|");
+                        Console.Write($"{array2D[i, j],3}");
                     }
                     Console.WriteLine("|");
                     Console.WriteLine(gridLines);
