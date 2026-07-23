@@ -18,10 +18,12 @@ namespace Arrays_2D
             //setting up variables for putting grid in the array
             int gridColumns = columns * 4 + 1; // because of grid upper and lower boundaries +---+
             string gridLines = "+";
-            //RGB variables for color:
-            int r = 255;
-            int g = 255;
-            int b = 255;
+            //RGB variable for color:
+            int rgb = 255;
+            //constants for array content selection
+            const char NUMBERS_CHOSEN = '1';
+            const char SYMBOLS_CHOSEN = '2';
+            const char INDICES_CHOSEN = '3';
             for (int i = 1; i < gridColumns; i++)
             {
                 if (i % 4 == 0)
@@ -40,7 +42,7 @@ namespace Arrays_2D
 
             int runningValueIncrement = 0;
             //numbers selected as content for 2D Array
-            if (arraysContentSelection == '1')
+            if (arraysContentSelection == NUMBERS_CHOSEN)
             {
                 //filling of 2D Array with values
                 for (int i = 0; i < rows; i++)
@@ -52,7 +54,7 @@ namespace Arrays_2D
                 }
             }
             //symbols selected as content for 2D array
-            if (arraysContentSelection == '2')
+            if (arraysContentSelection == SYMBOLS_CHOSEN)
             {
                 for (int i = 0; i < rows; i++)
                 {
@@ -70,7 +72,7 @@ namespace Arrays_2D
                 }
             }
             //indices selected as content for 2D array
-            if (arraysContentSelection == '3')
+            if (arraysContentSelection == INDICES_CHOSEN)
             {
                 for (int i = 0; i < rows; i++)
                 {
@@ -96,19 +98,19 @@ namespace Arrays_2D
                         {
                             if (j % columns == 0)
                             {
-                                Console.Write($"{array2D[i, j],3}".Pastel(Color.FromArgb(r, 0, 0)));
+                                Console.Write($"{array2D[i, j],3}".Pastel(Color.FromArgb(rgb, 0, 0)));
                             }
                             if (j % columns == 1)
                             {
-                                Console.Write($"{array2D[i, j],3}".Pastel(Color.FromArgb(0, g, 0)));
+                                Console.Write($"{array2D[i, j],3}".Pastel(Color.FromArgb(0, rgb, 0)));
                             }
                             if (j % columns == 2)
                             {
-                                Console.Write($"{array2D[i, j],3}".Pastel(Color.FromArgb(0, 0, b)));
+                                Console.Write($"{array2D[i, j],3}".Pastel(Color.FromArgb(0, 0, rgb)));
                             }
                             if (j % columns == 3)
                             {
-                                Console.Write($"{array2D[i, j],3}".Pastel(Color.FromArgb(r, g, 0)));
+                                Console.Write($"{array2D[i, j],3}".Pastel(Color.FromArgb(rgb, rgb, 0)));
                             }
                         }
                         else
